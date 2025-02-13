@@ -9,7 +9,14 @@ app.secret_key = 'hacker_haven'
 bcrypt = Bcrypt(app)
 
 # MongoDB Setup
-client = MongoClient("mongodb+srv://x_codemcu_x:abhradeep%402010@squidgame.f4kia.mongodb.net/")
+
+client = MongoClient(
+    "mongodb+srv://x_codemcu_x:abhradeep%402010@squidgame.f4kia.mongodb.net/squidgame?retryWrites=true&w=majority",
+    tls=True,
+    tlsAllowInvalidCertificates=True,  # ✅ Disable strict SSL verification
+    serverSelectionTimeoutMS=50000  # ✅ Increase timeout
+)
+
 db = client['squidgame']
 players_collection = db['players']
 
