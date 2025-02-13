@@ -12,7 +12,6 @@ bcrypt = Bcrypt(app)
 
 client = MongoClient(
     "mongodb+srv://x_codemcu_x:abhradeep%402010@squidgame.f4kia.mongodb.net/squidgame?retryWrites=true&w=majority",
-    tls=True,
     tlsAllowInvalidCertificates=True,  # ✅ Disable strict SSL verification
     serverSelectionTimeoutMS=50000  # ✅ Increase timeout
 )
