@@ -9,7 +9,7 @@ app.secret_key = 'hacker_haven'
 bcrypt = Bcrypt(app)
 
 # MongoDB Setup
-client = MongoClient("mongodb://localhost:27017/")
+client = MongoClient("mongodb+srv://x_codemcu_x:abhradeep%402010@squidgame.f4kia.mongodb.net/")
 db = client['squidgame']
 players_collection = db['players']
 
