@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboard_player.css') }}">
+</head>
+<body class="dashboard-theme">
+    <header>
+        <h1>Player {{ user.player_no }}, Welcome to the Game</h1>
+    </header>
+    
+    <div class="player-info">
+        <p><strong>Full Name:</strong> {{ user.name }}</p>
+        <p><strong>Date of Birth:</strong> {{ user.dob }}</p>
+        <p><strong>Username:</strong> {{ user.username }}</p>
+        <p><strong>Player Number:</strong> {{ user.player_no }}</p>
+        {%if user.username == "codemcu" %}
+        <p><strong>IP Address:</strong> {{ user.user_ip }}</p>
+        <p class="buckle-up"><strong>Have fun, sir. We have your back.</strong></p>
+        {% else %}
+        <p><strong>IP Address:</strong> {{ user.user_ip }} <strong>(Don't leave the games.)</strong></p>
+        <p class="buckle-up"><strong>Buckle Up, The Games will Start very Soon!</strong></p>
+        {% endif %}
+
+    </div>
+
+    <a href="{{ url_for('logout') }}" class="btn">Logout</a>
+</body>
+</html>

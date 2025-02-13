@@ -1,0 +1,89 @@
+/* Ensure full-page layout */
+body {
+    background: radial-gradient(circle at left, #001f3f, black, #001f3f);
+    color: white;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+/* Top-right positioning for "View Your Player Dashboard" button */
+.top-right {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+/* General button styling */
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    background: #ff1493; /* Pink */
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: 0.3s;
+    border: 2px solid white;
+    text-align: center;
+}
+
+.btn:hover {
+    background: #00bfff; /* Deep Blue */
+    box-shadow: 0px 0px 15px white;
+    transform: scale(1.05);
+}
+
+/* Make the dashboard button smaller */
+.dashboard-button {
+    font-size: 14px;
+    padding: 8px 18px;
+}
+
+/* Reduce size of "Log In As This User" button */
+.login-button {
+    width: 350px;  /* ✅ Same width as input field */
+    font-size: 16px;
+    padding: 12px 20px;
+}
+
+/* Proper spacing between elements */
+.btn-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* ✅ Adjust spacing between buttons */
+    align-items: center;
+}
+
+.username-input {
+    width: 350px;  /* ✅ Adjusted width */
+    height: 50px;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid white;
+    text-align: center;
+    background: black;
+    color: white;
+    margin-bottom: 20px; /* ✅ Ensures space between input & button */
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* ✅ Adds more space */
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Adds proper spacing */
+}

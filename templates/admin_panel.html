@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_2.css') }}">
+</head>
+<body>
+
+    <!-- Top-right Player Dashboard Button -->
+    <a href="{{ url_for('dashboard') }}" class="btn top-right">View Your Player Dashboard</a>
+
+    <h1>Admin: Log in as Another User</h1>
+
+    <div class="login-container">
+        <form method="post">
+            <input type="text" name="username" class="username-input" placeholder="Enter Username to Log In" required>
+            <div class="btn-container">
+                <button type="submit" class="btn">Log In As This User</button>
+                <a href="{{ url_for('logout') }}" class="btn">Logout</a>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

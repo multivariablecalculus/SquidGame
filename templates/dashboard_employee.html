@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboard_employee.css') }}">
+    <style>
+        .top-right-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #ff6699;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .top-right-btn:hover {
+            background-color: #ff3366;
+        }
+    </style>
+</head>
+<body class="employee-theme">
+    {% if user.rank == "The Officer" %}
+        <a href="{{ url_for('manage_accounts') }}" class="top-right-btn">Manage Accounts</a>
+    {% endif %}
+
+    <header>
+        <h1>{{ user.rank }}{% if user.rank != "The Officer" %} {{ user.employee_no }}{% endif %}, Welcome to the Game</h1>
+    </header>
+    
+    <div class="employee-info">
+        <p><strong>Full Name:</strong> {{ user.name }}</p>
+        <p><strong>Date of Birth:</strong> {{ user.dob }}</p>
+        <p><strong>Username:</strong> {{ user.username }}</p>
+
+        {% if user.rank != "The Officer" %}
+            <p><strong>Employee Number:</strong> {{ user.employee_no }}</p>
+        {% endif %}
+
+        {% if user.rank == "The Officer" %}
+            <p><strong>IP Address:</strong> {{ user.user_ip }} <strong>(Please use a VPN, sir.)</strong></p>
+            <p class="buckle-up"><strong>Have fun, sir. We have your back.</strong></p>
+        {% else %}
+            <p><strong>IP Address:</strong> {{ user.user_ip }} <strong>(Don't Think about Betraying Us.)</strong></p>
+        {% endif %}
+    </div>
+
+    <a href="{{ url_for('logout') }}" class="btn">Logout</a>
+</body>
+</html>

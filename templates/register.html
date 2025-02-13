@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Squid Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <h1>Register to Enter</h1>
+
+    <form method="post">
+        <!-- Hidden field to store user's real IPv4 -->
+        <input type="hidden" name="user_ip" id="user_ip">
+        
+        <input type="text" name="name" placeholder="Full Name" required>
+        <input type="date" name="dob" required>
+        <input type="text" name="username" placeholder="Preferred Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+        
+        <select name="role">
+            <option value="Player">Player</option>
+            <option value="Employee">Employee</option>
+        </select>
+
+        <button type="submit">Join</button>
+    </form>
+
+    <script>
+        // Fetch the real IPv4 of the user using ipify API
+        fetch("https://api4.ipify.org?format=json")
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("user_ip").value = data.ip;
+            });
+    </script>
+
+</body>
+</html>
