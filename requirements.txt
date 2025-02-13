@@ -162,13 +162,9 @@ stringzilla==3.11.3
 sympy==1.13.1
 tensorboard==2.18.0
 tensorboard-data-server==0.7.2
-tensorflow==2.18.0
-tensorflow-io-gcs-filesystem==0.31.0
-tensorflow_intel==2.18.0
 termcolor==2.5.0
 thop==0.1.1.post2209072238
 threadpoolctl==3.5.0
-torch==2.6.0+cu118
 torchaudio==2.6.0+cu118
 torchvision==0.21.0+cu118
 tqdm==4.67.1
