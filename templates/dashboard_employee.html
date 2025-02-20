@@ -45,7 +45,7 @@
         {% if user.rank == "The Officer" %}
             <p><strong>IP Address:</strong> {{ user.user_ip }} <strong>(Please use a VPN, sir.)</strong></p>
             <p class="buckle-up"><strong>Have fun, sir. We have your back.</strong></p>
-        {% else if user.rank == "The Salesman" %}
+        {% elif user.rank == "The Salesman" %}
             <p><strong>IP Address:</strong> {{ user.user_ip }} <strong>(Please use a VPN, sir.)</strong></p>
             <p class="buckle-up"><strong>Please collect more players, sir!</strong></p>
         {% else %}
