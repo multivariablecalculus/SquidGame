@@ -30,7 +30,7 @@
     {% endif %}
 
     <header>
-        <h1>{{ user.rank }}{% if user.rank != "The Officer" %} {{ user.employee_no }}{% endif %}, Welcome to the Game</h1>
+        <h1>{{ user.rank }}{% if user.rank != "The Officer" %} {% elif user.rank != "The Salesman" %} {{ user.employee_no }}{% endif %}, Welcome to the Game</h1>
     </header>
     
     <div class="employee-info">
@@ -38,7 +38,7 @@
         <p><strong>Date of Birth:</strong> {{ user.dob }}</p>
         <p><strong>Username:</strong> {{ user.username }}</p>
 
-        {% if user.rank != "The Officer" %}
+        {% if user.rank != "The Officer" or user.rank != "The Salesman" %}
             <p><strong>Employee Number:</strong> {{ user.employee_no }}</p>
         {% endif %}
 
