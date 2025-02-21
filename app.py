@@ -143,15 +143,19 @@ def register():
 
     return render_template('register.html')
 
-
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
+        user_ip = request.form.get('user_ip', '0.0.0.0')  # Get IPv4 from form
+
         user = players_collection.find_one({'username': username})
 
         if user and bcrypt.check_password_hash(user['password'], password):
+            # Update user's latest IPv4 in MongoDB
+            players_collection.update_one({'username': username}, {'$set': {'user_ip': user_ip}})
+
             session['username'] = username
             session['role'] = user['role']
             session['rank'] = user.get('rank', None)
@@ -170,7 +174,6 @@ def login():
         return "Invalid credentials. Try again."
 
     return render_template('login.html')
-
 
 @app.route('/admin_panel', methods=['GET', 'POST'])
 def admin_panel():
