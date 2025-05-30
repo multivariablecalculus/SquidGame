@@ -1,3 +1,6 @@
+#I should be proud since I was not lazy making this and used full variable names for better understanding.
+#Do consider understanding the logic in certain portions, but Flask is not very hard, so nvm.
+
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify
 from flask_bcrypt import Bcrypt
 from pymongo import MongoClient
@@ -5,15 +8,15 @@ import random
 import re
 
 app = Flask(__name__)
-app.secret_key = 'hacker_haven'
+app.secret_key = 'hacker_haven' #reminds me of something...
 bcrypt = Bcrypt(app)
 
 # MongoDB Setup
 
 client = MongoClient(
-    "mongodb+srv://x_codemcu_x:abhradeep%402010@squidgame.f4kia.mongodb.net/squidgame?retryWrites=true&w=majority",
-    tlsAllowInvalidCertificates=True,  # ✅ Disable strict SSL verification
-    serverSelectionTimeoutMS=50000  # ✅ Increase timeout
+    "mongodb+srv://x_codemcu_x:abhradeep%402010@squidgame.f4kia.mongodb.net/squidgame?retryWrites=true&w=majority", #I beg you, pls do not steal this :(
+    tlsAllowInvalidCertificates=True,  #Disable strict SSL verification
+    serverSelectionTimeoutMS=50000  #Increase timeout
 )
 
 db = client['squidgame']
@@ -153,7 +156,7 @@ def login():
         user = players_collection.find_one({'username': username})
 
         if user and bcrypt.check_password_hash(user['password'], password):
-            # Update user's latest IPv4 in MongoDB
+            #Update username in MongoDB
             players_collection.update_one({'username': username}, {'$set': {'user_ip': user_ip}})
 
             session['username'] = username
@@ -165,7 +168,7 @@ def login():
             else:
                 session['employee_no'] = user.get('employee_no', None)
 
-            if username == "codemcu":
+            if username == "codemcu": #pls do not use these creds; these are mine :(
                 session['is_admin'] = True
                 return redirect(url_for('admin_panel'))
 
